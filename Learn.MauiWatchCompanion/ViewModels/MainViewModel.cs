@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learn.MauiWatchCompanion.ViewModels;
+namespace Learn.MauiWatch.Companion.ViewModels;
 
 public class MainViewModel
 {

@@ -2,7 +2,7 @@ using Foundation;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Learn.MauiWatchCompanion;
+namespace Learn.MauiWatch.Companion;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

@@ -1,7 +1,7 @@
-using Learn.MauiWatchCompanion.ViewModels;
+using Learn.MauiWatch.Companion.ViewModels;
 using Microsoft.Maui.Controls;
 
-namespace Learn.MauiWatchCompanion;
+namespace Learn.MauiWatch.Companion;
 
 public partial class MainPage : ContentPage
 {

@@ -13,7 +13,7 @@ The projects disable `ImplicitUsings` so that you can cearly see which libraries
 ### Tech Stack
 
 * .NET MAUI v8
-* Android Wear
+* Android Wear API 34
 
 ## Emulator Config
 
@@ -32,3 +32,9 @@ _Coming soon._
 
 * `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 * `<uses-permission android:name="android.permission.INTERNET" />`
+
+## References
+
+* [MAUI Wear OS/Watch OS Support](https://github.com/dotnet/maui/discussions/1144)
+* [Sample](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1)
+* Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchCompanion)

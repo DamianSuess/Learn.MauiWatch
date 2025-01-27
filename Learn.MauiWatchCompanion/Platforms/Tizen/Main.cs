@@ -2,7 +2,7 @@ using System;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Learn.MauiWatchCompanion
+namespace Learn.MauiWatch.Companion
 {
     internal class Program : MauiApplication
     {

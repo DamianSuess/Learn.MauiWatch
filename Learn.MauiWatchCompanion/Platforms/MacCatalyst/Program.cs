@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Learn.MauiWatchCompanion
+namespace Learn.MauiWatch.Companion
 {
     public class Program
     {
