@@ -10,14 +10,11 @@
              HeightRequest="185"
              SemanticProperties.Description="dot net bot in a race car number eight" />
 
-      <Label Text="Hello, World!"
-             SemanticProperties.HeadingLevel="Level1"
-             Style="{StaticResource Headline}" />
+      <Label Text="Hello, MAUI Wear!" SemanticProperties.HeadingLevel="Level1" />
 
       <Label Text="Welcome to &#10;.NET Multi-platform App UI"
              SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-             SemanticProperties.HeadingLevel="Level2"
-             Style="{StaticResource SubHeadline}" />
+             SemanticProperties.HeadingLevel="Level2" />
 
       <Button Text="Click me"
               x:Name="CounterBtn"

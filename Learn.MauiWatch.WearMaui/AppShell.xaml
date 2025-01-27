@@ -6,7 +6,7 @@
        Title="Learn.MauiWatch.WearMaui"
        Shell.FlyoutBehavior="Disabled">
 
-  <ShellContent Title="Home"
+  <ShellContent Title="     MAUI Wear"
                 ContentTemplate="{DataTemplate local:MainPage}"
                 Route="MainPage" />
 </Shell>

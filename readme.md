@@ -6,6 +6,8 @@ This repository provides an example on how to crete a Watch app with .NET MAUI a
 **Website:** [SuessLabs.com](https://suesslabs.com)<br/>
 _Submitted with ❤ by Xeno Innovations, Inc. and Suess Labs._
 
+![screen-shot](docs/Wear-Emu.png)
+
 ## Project Configuration
 
 The projects disable `ImplicitUsings` so that you can cearly see which libraries and namespaces need to be included for each class.

@@ -5,13 +5,13 @@ namespace Learn.MauiWatch.WearMaui;
 
 public partial class MainPage : ContentPage
 {
-  public MainPage(MainViewModel viewModel)
+  public MainPage()
   {
     InitializeComponent();
 
-    ViewModel = viewModel;
-    BindingContext = viewModel;
+    ////ViewModel = viewModel;
+    ////BindingContext = viewModel;
   }
 
-  public MainViewModel ViewModel { get; set; }
+  ////public MainViewModel ViewModel { get; set; }
 }
