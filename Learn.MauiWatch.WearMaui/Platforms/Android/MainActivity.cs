@@ -2,7 +2,7 @@ using Android.App;
 using Android.Content.PM;
 using Microsoft.Maui;
 
-namespace Learn.MauiWatch.Companion;
+namespace Learn.MauiWatch.WearMaui;
 
 [Activity(
   Theme = "@style/Maui.SplashTheme",

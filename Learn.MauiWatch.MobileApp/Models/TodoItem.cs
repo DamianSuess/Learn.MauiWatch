@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learn.MauiWatch.Companion.ViewModels;
+namespace Learn.MauiWatch.WearMaui.ViewModels;
 
 public class TodoItem
 {
