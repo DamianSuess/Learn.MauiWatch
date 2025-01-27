@@ -2,7 +2,7 @@
   "solution": {
     "path": "Learn.MauiWatch.sln",
     "projects": [
-      "Learn.MauiWatchCompanion\\Learn.MauiWatchCompanion.csproj"
+      "Learn.MauiWatch.Companion\\Learn.MauiWatch.Companion.csproj"
     ]
   }
 }
