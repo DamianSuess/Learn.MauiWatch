@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 
-namespace Learn.MauiWatch.Companion;
+namespace Learn.MauiWatch.WearMaui;
 
 public static class MauiProgram
 {

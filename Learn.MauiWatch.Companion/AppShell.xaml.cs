@@ -1,6 +1,6 @@
 using Microsoft.Maui.Controls;
 
-namespace Learn.MauiWatch.Companion;
+namespace Learn.MauiWatch.WearMaui;
 
 public partial class AppShell : Shell
 {

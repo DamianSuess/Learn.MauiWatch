@@ -1,4 +1,4 @@
-﻿# Learn - Watch Companion with .NET MAUI
+﻿# Learn - Watch WearMaui with .NET MAUI
 
 This repository provides an example on how to crete a Watch app with .NET MAUI and link it to your mobile app.
 
@@ -36,5 +36,5 @@ _Coming soon._
 ## References
 
 * [MAUI Wear OS/Watch OS Support](https://github.com/dotnet/maui/discussions/1144)
-* [Sample](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1)
-* Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchCompanion)
+* [Showcase-1](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1) [Showcase-2](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-2)
+* Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchWearMaui)

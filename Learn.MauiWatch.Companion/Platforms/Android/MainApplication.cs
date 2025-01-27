@@ -4,7 +4,7 @@ using Android.Runtime;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace Learn.MauiWatch.Companion;
+namespace Learn.MauiWatch.WearMaui;
 
 [Application]
 public class MainApplication : MauiApplication
