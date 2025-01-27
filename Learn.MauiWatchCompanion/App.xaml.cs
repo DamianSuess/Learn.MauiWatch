@@ -1,12 +1,13 @@
-﻿namespace Learn.MauiWatchCompanion
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+using Microsoft.Maui.Controls;
 
-            MainPage = new AppShell();
-        }
-    }
+namespace Learn.MauiWatchCompanion;
+
+public partial class App : Application
+{
+  public App()
+  {
+    InitializeComponent();
+
+    MainPage = new AppShell();
+  }
 }

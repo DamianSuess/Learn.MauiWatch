@@ -1,10 +1,11 @@
-﻿using Foundation;
+using Foundation;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
 
-namespace Learn.MauiWatchCompanion
+namespace Learn.MauiWatchCompanion;
+
+[Register("AppDelegate")]
+public class AppDelegate : MauiUIApplicationDelegate
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate
-    {
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-    }
+  protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 }

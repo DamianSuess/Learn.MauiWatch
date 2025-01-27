@@ -1,10 +1,11 @@
-﻿namespace Learn.MauiWatchCompanion
+using Microsoft.Maui.Controls;
+
+namespace Learn.MauiWatchCompanion;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
-    {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
-    }
+  public AppShell()
+  {
+    InitializeComponent();
+  }
 }

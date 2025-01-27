@@ -5,7 +5,7 @@
 
   <ScrollView>
     <VerticalStackLayout Padding="30,0" Spacing="25">
-      <Image Source="dotnet_bot.png"
+      <Image Source="dotnet_bot2.png"
              Aspect="AspectFit"
              HeightRequest="185"
              SemanticProperties.Description="dot net bot in a race car number eight" />
@@ -21,7 +21,6 @@
 
       <Button Text="Click me"
               x:Name="CounterBtn"
-              Clicked="OnCounterClicked"
               HorizontalOptions="Fill"
               SemanticProperties.Hint="Counts the number of times you click" />
     </VerticalStackLayout>

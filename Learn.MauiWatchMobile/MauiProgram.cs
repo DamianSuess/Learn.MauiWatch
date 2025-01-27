@@ -1,4 +1,6 @@
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
 
 namespace Learn.MauiWatchMobile;
 

@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls;
+
 namespace Learn.MauiWatchMobile;
 
 public partial class App : Application

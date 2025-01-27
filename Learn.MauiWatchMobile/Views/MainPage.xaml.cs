@@ -1,8 +1,12 @@
+using System;
+using Microsoft.Maui.Accessibility;
+using Microsoft.Maui.Controls;
+
 namespace Learn.MauiWatchMobile;
 
 public partial class MainPage : ContentPage
 {
-  int _count = 0;
+  private int _count = 0;
 
   public MainPage()
   {
