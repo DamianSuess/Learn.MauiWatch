@@ -46,7 +46,14 @@ To perform communications you can choose between WiFi or Bluetooth. The more com
 
 ## References
 
+Official Guides:
+
 * [MAUI Wear OS/Watch OS Support](https://github.com/dotnet/maui/discussions/1144)
+* [Watch Face](https://github.com/MicrosoftDocs/xamarin-docs/blob/live/docs/android/wear/platform/creating-a-watchface.md)
+
+Around the Internet:
+
 * [Showcase-1](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1) [Showcase-2](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-2)
 * Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchWearMaui)
   * [Parse-LiveQueries](https://github.com/YBTopaz8/Parse-LiveQueries-DOTNET) comms.
+* [MAUI with Watch Apps](https://github.com/vouksh/MauiWithWatchApps)

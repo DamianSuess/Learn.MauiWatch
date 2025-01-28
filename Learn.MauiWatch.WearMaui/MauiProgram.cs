@@ -1,3 +1,5 @@
+using Learn.MauiWatch.WearMaui.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
@@ -12,6 +14,8 @@ public static class MauiProgram
 
     builder
       .UseMauiApp<App>()
+      .RegisterServices()
+      .RegisterViews()
       .ConfigureFonts(fonts =>
       {
         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,5 +27,19 @@ public static class MauiProgram
 #endif
 
     return builder.Build();
+  }
+
+  private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
+  {
+    // Register Services:
+    // builder.Services.AddSingleton<ISettingsService, SettingsService>();
+    return builder;
+  }
+
+  private static MauiAppBuilder RegisterViews(this MauiAppBuilder builder)
+  {
+    // Register Views
+    builder.Services.AddSingleton<MainViewModel>();
+    return builder;
   }
 }
