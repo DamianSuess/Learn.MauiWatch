@@ -10,12 +10,24 @@ _Submitted with ❤ by Xeno Innovations, Inc. and Suess Labs._
 
 ## Project Configuration
 
-The projects disable `ImplicitUsings` so that you can cearly see which libraries and namespaces need to be included for each class.
+The projects disable `ImplicitUsings` so that you can clearly see which libraries and namespaces need to be included for each class.
 
 ### Tech Stack
 
 * .NET MAUI v8
 * Android Wear API 34
+
+### The Projects
+
+1. Learn.MauiWatch.MobileApp - All-in-one Mobile and Wear apps
+   * Status: In-progress
+   * Features: Watch to App communication
+2. Learn.MauiWatch.Wearable - Xamarin.Android based Wear app
+   * Status: Done
+   * Features: UI Only
+3. Learn.MauiWatch.WearMaui - .NET MAUI UI exclusive UI
+   * Status: Done - UI Only
+   * Features: UI Only
 
 ### Put Watch into Developer Mode
 
