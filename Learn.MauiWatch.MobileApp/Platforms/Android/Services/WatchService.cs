@@ -1,26 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Android.Gms.Wearable;
 using Learn.MauiWatchMobile.Interfaces;
 using Microsoft.Extensions.Logging;
-using Android.Gsm.Wearable;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Learn.MauiWatchMobile.Platforms.Android.Services;
 
-public class WatchService : IWatchService
+// TODO: Move this to its own class since we can't use an interface with inheriting
+public class WatchService : IWatchService ////, Java.Lang.Object
 {
+  private readonly CapabilityClient _capabilityClient;
+  private readonly ChannelClient _channelClient;
+  private readonly DataClient _dataClient;
   private readonly ILogger<WatchService> _log;
+  private readonly MessageClient _msgClient;
+  private readonly NodeClient _nodeClient;
 
   public WatchService(ILogger<WatchService> logger)
   {
     _log = logger;
+
+    _msgClient = WearableClass.GetMessageClient(Platform.AppContext);
+    _dataClient = WearableClass.GetDataClient(Platform.AppContext);
+    _capabilityClient = WearableClass.GetCapabilityClient(Platform.AppContext);
+    _nodeClient = WearableClass.GetNodeClient(Platform.AppContext);
+    _channelClient = WearableClass.GetChannelClient(Platform.AppContext);
+
     Initialize();
   }
 
-  public void Connect()
+  public async void Connect()
   {
+    await _msgClient.AddListenerAsync(this);
   }
 
   public void Disconnect()
@@ -29,8 +39,6 @@ public class WatchService : IWatchService
 
   public void Initialize()
   {
-    var msgClient = WearableClass
-
     Connect();
     // MessageReceived += OnMessageReceived(IWatchPacket packet)
   }
@@ -40,6 +48,10 @@ public class WatchService : IWatchService
   }
 
   public void SendMessage(string command, string payload)
+  {
+  }
+
+  public void OnMessageReceived(IMessageEvent messageEvent)
   {
   }
 }

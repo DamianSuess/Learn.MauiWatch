@@ -22,6 +22,8 @@ The projects disable `ImplicitUsings` so that you can clearly see which librarie
 1. Learn.MauiWatch.MobileApp - All-in-one Mobile and Wear apps
    * Status: In-progress
    * Features: Watch to App communication
+   * Packages:
+     * `Xamarin.GooglePlayServices.Wearable`
 2. Learn.MauiWatch.Wearable - Xamarin.Android based Wear app
    * Status: Done
    * Features: UI Only
