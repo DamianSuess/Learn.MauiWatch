@@ -82,3 +82,42 @@ Around the Internet:
 * Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchWearMaui)
   * [Parse-LiveQueries](https://github.com/YBTopaz8/Parse-LiveQueries-DOTNET) comms.
 * [MAUI with Watch Apps](https://github.com/vouksh/MauiWithWatchApps)
+
+### Issues Encountered
+
+#### Type androidx.collection.ArrayMapKt is defined multiple times:
+
+##### Error Message
+
+```
+Type androidx.collection.ArrayMapKt is defined multiple times:
+ C:\Users\USERNAME\.nuget\packages\xamarin.androidx.collection.jvm\1.4.0.4\buildTransitive\net8.0-android34.0\..\..\jar\androidx.collection.collection-jvm.jar:androidx/collection/ArrayMapKt.class,
+ C:\Users\USERNAME\.nuget\packages\xamarin.androidx.collection.ktx\1.2.0.9\buildTransitive\net6.0-android31.0\..\..\jar\androidx.collection.collection-ktx.jar:androidx/collection/ArrayMapKt.class
+```
+
+Note, the following versions for `xamarin.androidx.collection` are in conflict. We need force Kotlin (`ktx`) to use the same version as JVM.
+* JVM: 1.4.0.4
+* KTX: 1.2.0.9
+
+##### The Fix
+
+```xml
+    <PackageReference Include="Xamarin.AndroidX.Collection.Ktx">
+      <Version>1.4.0.4</Version>
+    </PackageReference>
+```
+
+##### Similar Issues
+
+* [AndroidX.Collection.ArrayMapKt is defined multiple times (GitHub - MAUI: #18665)](https://github.com/dotnet/maui/issues/18665)
+* [Java linking conflict when adding Xamarin.AndroidX... (GitHub - MAUI: 26963)](https://github.com/dotnet/maui/issues/26963)
+* [Workaround (GitHub - Android-Libraries: #764)](https://github.com/dotnet/android-libraries/issues/764)
+
+```xml
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android34.0'">
+    <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.0.1.4" />
+    <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.8.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.8.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.6.2.1" />
+  </ItemGroup>
+```
