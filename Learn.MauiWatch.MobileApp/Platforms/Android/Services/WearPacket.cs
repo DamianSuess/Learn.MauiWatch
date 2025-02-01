@@ -9,7 +9,7 @@ public class WearPacket
 
   public CommandType CommandType { get; set; }
 
-  public string ErrorMessage { get; set; }
+  public string? ErrorMessage { get; set; }
 
   public StatusType StatusType { get; set; }
 }
