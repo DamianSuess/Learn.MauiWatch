@@ -44,19 +44,30 @@ For the MAUI Android Wear app, you don't have to do much to get it up and runnin
 
 To perform communications you can choose between WiFi or Bluetooth. The more common being, Bluetooth for communication between the app and wearable.
 
-### Permissions - AndroidManifest.xml
+## Recreate Mobile App (All-In-One)
 
-```xml
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.INTERNET" />
-```
+### Requirements
 
-## Recreate Mobile App
+NuGet Packages:
 
-### Permissions
+* `Xamarin.GooglePlayServices.Wearable`
+
+AndroidManifest.xml Permissions:
 
 * `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 * `<uses-permission android:name="android.permission.INTERNET" />`
+
+## Learn MAUI Watch MobileApp (All-in-One)
+
+### Got Ya's
+
+1. This app requires the package, `Xamarin.GooglePlayServices.Wearable` v118.x. The first iteration will use this version.
+   * As of version v119.x, `MessageOptions` class is no longer available; _no documentation either_.
+     * `com/google/android/gms/wearable/MessageClient`
+   * The (lack of) documentation suggests [Wearable.WearableOptions](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable.WearableOptions)
+   * See also from, developers.google.com:
+     * [Wearable API](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable)
+     * [MessageClient API](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient)
 
 ## References
 

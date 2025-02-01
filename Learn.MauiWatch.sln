@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1EC1287-DDB4-4BDC-B8C7-D8B4CC91B0AD}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		CodeMaid.config = CodeMaid.config
 		LICENSE = LICENSE
 		readme.md = readme.md
 	EndProjectSection

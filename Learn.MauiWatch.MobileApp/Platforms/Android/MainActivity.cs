@@ -1,7 +1,11 @@
 using Android;
 using Android.App;
 using Android.Content.PM;
+using Android.Gms.Wearable;
 using Android.OS;
+using Learn.MauiWatchMobile.Platforms.Android.Services;
+using Learn.MauiWatchMobile.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui;
 using Microsoft.Maui.ApplicationModel;
 
@@ -36,12 +40,24 @@ public class MainActivity : MauiAppCompatActivity
   {
     base.OnResume();
 
-    /*
-    var wearableService = MainApplication.Current.Services.GetService<WearableInteractionService>();
-    if (wearableService != null)
+    // Obsolete: Use, IPlatformApplication.Current.Services
+    ////var service = IPlatformApplication.Current?.Services.GetService<WearableService>();
+
+    var service = MainApplication.Current.Services.GetService<WearableService>();
+    if (service != null)
     {
-      var handler = wearablesService.Handler as WatchService.PlatformHanlder)
+      // In case separation is needed:
+      // var handler = service.WatchService.PlatformHandler as PlatformWatchHandler;
+      var handler = service.WatchService as WatchService;
+
+      WearableClass.GetDataClient(MainApplication.Current)
+                   .AddListener(handler);
+
+      WearableClass.GetMessageClient(MainApplication.Current)
+                   .AddListener(handler);
+
+      WearableClass.GetCapabilityClient(MainApplication.Current)
+                   .AddListener(handler, WatchService.CAPABILITY_SUESSLABS_WEAR);
     }
-    */
   }
 }
