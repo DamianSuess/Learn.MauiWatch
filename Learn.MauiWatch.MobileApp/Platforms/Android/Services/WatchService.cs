@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Android.Gms.Common.Apis;
 using Android.Gms.Extensions;
@@ -111,6 +113,17 @@ public class WatchService :
     switch (messageEvent.Path)
     {
       case MessagePath:
+
+        var bytes = messageEvent.GetData();
+        var json = Encoding.UTF8.GetString(bytes);
+        var data = JsonSerializer.Deserialize<Command>(json);
+
+        var packet = new WearPacket
+        {
+          StatusType = StatusType.Received,
+          CommandType = CommandType.Message,
+        }
+
         break;
     }
   }
