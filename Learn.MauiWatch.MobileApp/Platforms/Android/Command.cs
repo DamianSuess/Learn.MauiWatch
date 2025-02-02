@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Learn.MauiWatchMobile.Interfaces;
 
-namespace Learn.MauiWatchMobile.Platforms.Android.Services;
+namespace Learn.MauiWatchMobile.Platforms.Android;
 
 public class Command : ICommand
 {

@@ -1,16 +1,20 @@
 using System;
 using Learn.MauiWatchMobile.Interfaces;
 using Learn.MauiWatchMobile.Models;
+using Microsoft.Extensions.Logging;
 
 namespace Learn.MauiWatchMobile.Services;
 
 /// <summary>Cross-platform wearable service use to access Android Wear and Apple Watch.</summary>
 public class WearableService
 {
+  private readonly ILogger<WearableService> _log;
   private readonly IWatchService _watch;
 
-  public WearableService(IWatchService watchService)
+  public WearableService(ILogger<WearableService> log, IWatchService watchService)
   {
+    _log = log;
+
     _watch = watchService;
     _watch.ResponseReceived += OnWatchResponseReceived;
   }
@@ -23,14 +27,21 @@ public class WearableService
     _watch.Connect();
   }
 
-  public void SendMessage()
+  /// <summary>Send message to watch.</summary>
+  /// <remarks>TODO: Use CommandType and payloads</remarks>
+  public void SendMessage(CommandType cmdType, string payload)
   {
     // Send command to watch
-    _watch.SendMessageAsync("GetStatus");
+    // Use CommandTypes here to get specific
+    _watch.SendMessageAsync(cmdType.ToString(), payload);
   }
 
   private void OnWatchResponseReceived(object sender, ResponseEventArgs e)
   {
-    throw new NotImplementedException();
+    // YAY we got something!
+    // Use MessagingCenter to report it
+    _log.LogInformation("Client received response from watch. Display it!.");
+
+    System.Diagnostics.Debugger.Break();
   }
 }

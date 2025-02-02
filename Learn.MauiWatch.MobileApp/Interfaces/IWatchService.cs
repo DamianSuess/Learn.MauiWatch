@@ -21,11 +21,12 @@ public interface IWatchService
 
   /// <summary>Send message payload.</summary>
   /// <remarks>Overload method to simplify parameters.</remarks>
-  /// <param name="command">Pay.oad command.</param>
+  /// <param name="commandType">Payload command type.</param>
   /// <param name="dataString">Payload data.</param>
   /// <param name="dataNumber">Payload data.</param>
   /// <param name="dataBytes">Payload data.</param>
-  void SendMessageAsync(string command,
+  void SendMessageAsync(
+    string commandType,
     string dataString = "",
     double dataNumber = double.NaN,
     IEnumerable<object>? dataBytes = null);

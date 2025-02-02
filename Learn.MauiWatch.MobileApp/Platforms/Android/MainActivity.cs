@@ -39,12 +39,18 @@ public class MainActivity : MauiAppCompatActivity
     Instance = this;
   }
 
-  protected override void OnResume()
+  protected override async void OnResume()
   {
     base.OnResume();
 
     // Obsolete: Use, IPlatformApplication.Current.Services
     ////var service = IPlatformApplication.Current?.Services.GetService<WearableService>();
+
+    var nodes = await WearableClass.GetNodeClient(this).GetConnectedNodesAsync();
+    foreach(var node in nodes)
+    {
+      await WearableClass.GetMessageClient(this).SendMessageAsync(node.Id, "/app_starts", null);
+    }
 
     var service = MainApplication.Current.Services.GetService<WearableService>();
     if (service != null)

@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Learn.MauiWatchMobile.ViewModels"
              x:Class="Learn.MauiWatchMobile.MainPage">
-  <ContentPage.BindingContext>
+  <!--<ContentPage.BindingContext>
     <vm:MainViewModel />
-  </ContentPage.BindingContext>
+  </ContentPage.BindingContext>-->
   <ScrollView>
     <VerticalStackLayout Padding="30,0" Spacing="25">
       <Image Source="dotnet_bot.png"

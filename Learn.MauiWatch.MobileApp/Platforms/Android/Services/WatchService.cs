@@ -10,6 +10,7 @@ using Learn.MauiWatchMobile.Interfaces;
 using Learn.MauiWatchMobile.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Storage;
 
 namespace Learn.MauiWatchMobile.Platforms.Android.Services;
 
@@ -91,12 +92,12 @@ public class WatchService :
 
   public void OnCapabilityChanged(ICapabilityInfo capabilityInfo)
   {
-    throw new System.NotImplementedException();
+    _log.LogInformation("Capability Changed");
   }
 
   public void OnDataChanged(DataEventBuffer dataEvents)
   {
-    throw new System.NotImplementedException();
+    _log.LogInformation("Data Changed");
   }
 
   public void OnMessageReceived(IMessageEvent messageEvent)
@@ -121,9 +122,11 @@ public class WatchService :
       case CommandType.ContextUpdate:
       case CommandType.UserInfo:
       case CommandType.Message:
+        _log.LogInformation("Process generic command");
         break;
 
       case CommandType.File:
+        _log.LogInformation("Process file command");
         break;
     }
   }
@@ -172,7 +175,37 @@ public class WatchService :
 
   private async Task GetDeviceIdAsync()
   {
-    throw new NotImplementedException();
+    _log.LogInformation("Get Device Id");
+
+    try
+    {
+      var device = string.Empty;
+
+      var nodes = await WearableClass.GetNodeClient(Platform.AppContext)
+                                     .GetConnectedNodesAsync();
+
+      foreach (var node in nodes)
+      {
+        if (node is null)
+          continue;
+
+        if (node.IsNearby)
+        {
+          device = node.Id;
+          _log.LogInformation("Paired device: {name} ({id})", node.DisplayName, node.Id);
+        }
+
+        break;
+      }
+
+      // TODO: Save last used device
+      // Preferences.Default.Set("RemoteDevice", device);
+      _primaryDeviceId = device;
+    }
+    catch (Exception ex)
+    {
+      _log.LogError(ex, "Unable to obtain remote device");
+    }
   }
 
   private async Task<bool> VerifyWearableAsync()

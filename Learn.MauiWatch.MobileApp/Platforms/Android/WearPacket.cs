@@ -1,7 +1,7 @@
 using Learn.MauiWatchMobile.Interfaces;
 using Learn.MauiWatchMobile.Models;
 
-namespace Learn.MauiWatchMobile.Platforms.Android.Services;
+namespace Learn.MauiWatchMobile.Platforms.Android;
 
 public class WearPacket
 {
