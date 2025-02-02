@@ -1,25 +1,15 @@
-using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Microsoft.Maui.Controls;
 
 namespace Learn.MauiWatchMobile.ViewModels;
 
-public class MainViewModel : INotifyPropertyChanged
+public class MainViewModel : BaseViewModel
 {
-  private string _watchMessage;
-
-  public event PropertyChangedEventHandler? PropertyChanged;
+  private int _count = 0;
+  private string _watchMessage = string.Empty;
 
   public MainViewModel()
   {
-    CmdSendMessage = new Command(
-      execute: () =>
-      {
-        //Entry = "0";
-        //RefreshCanExecutes();
-      });
   }
 
   public string WatchMessage
@@ -28,20 +18,9 @@ public class MainViewModel : INotifyPropertyChanged
     set => SetProperty(ref _watchMessage, value);
   }
 
-  public ICommand CmdSendMessage { get; private set; }
-
-  protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+  public ICommand CmdSendMessage => new Command((obj) =>
   {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-  }
-
-  private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-  {
-    if (Object.Equals(storage, value))
-      return false;
-
-    storage = value;
-    OnPropertyChanged(propertyName);
-    return true;
-  }
+    _count++;
+    WatchMessage = $"Sending {_count}...";
+  });
 }
