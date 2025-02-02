@@ -6,19 +6,16 @@ public delegate void WearableResponseEventDelegate(object sender, ResponseEventA
 
 public class ResponseEventArgs : EventArgs
 {
-  public ResponseEventArgs(DateTime dttm, string commandType, string? stringPayload = null, double? numericPayload = null)
+  public ResponseEventArgs(DateTime dttm, CommandType commandType, string? payload = null)
   {
     DateTime = dttm;
     CommandType = commandType;
-    StringPayload = stringPayload;
-    NumericPayload = numericPayload;
+    Payload = payload;
   }
 
   public DateTime DateTime { get; set; }
 
-  public string CommandType { get; set; } = string.Empty;
+  public CommandType CommandType { get; set; } = CommandType.Unknown;
 
-  public string? StringPayload { get; set; }
-
-  public double? NumericPayload { get; set; }
+  public string? Payload { get; set; }
 }

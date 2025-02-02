@@ -13,11 +13,10 @@
              HeightRequest="185"
              SemanticProperties.Description="dot net bot in a race car number eight" />
 
-      <Label Text="MAUI Wearable!"
-             SemanticProperties.HeadingLevel="Level1"
-             Style="{StaticResource Headline}" />
+      <Label Text="MAUI Wearable!" Style="{StaticResource SubHeadline}" />
 
-      <Label Text="{Binding WatchMessage}" />
+      <Label Text="{Binding SentMessage}" />
+      <Label Text="{Binding RecvMessage}" />
 
       <Button Text="Send Message" Command="{Binding CmdSendMessage}"  />
     </VerticalStackLayout>

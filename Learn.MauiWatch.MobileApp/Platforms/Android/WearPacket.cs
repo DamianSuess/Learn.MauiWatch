@@ -5,6 +5,7 @@ namespace Learn.MauiWatchMobile.Platforms.Android;
 
 public class WearPacket
 {
+  /// <remarks>Redundant.</remarks>
   public ICommand Command { get; set; }
 
   public CommandType CommandType { get; set; }

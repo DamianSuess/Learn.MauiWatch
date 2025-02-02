@@ -16,6 +16,7 @@ The projects disable `ImplicitUsings` so that you can clearly see which librarie
 
 * .NET MAUI v8
 * Android Wear API 34
+* [Wearable - Getting Started Debugging](https://developer.android.com/training/wearables/get-started/debugging)
 
 ### The Projects
 

@@ -33,7 +33,7 @@ public class WearableService
   {
     // Send command to watch
     // Use CommandTypes here to get specific
-    _watch.SendMessageAsync(cmdType.ToString(), payload);
+    _watch.SendMessageAsync(cmdType, payload);
   }
 
   private void OnWatchResponseReceived(object sender, ResponseEventArgs e)

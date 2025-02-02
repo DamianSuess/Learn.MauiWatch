@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Learn.MauiWatchMobile.Models;
 
 namespace Learn.MauiWatchMobile.Interfaces;
@@ -8,7 +7,7 @@ public interface IWatchService
   ////public event WatchEvent OnWatchReceivedEvent;
   public event WearableResponseEventDelegate ResponseReceived;
 
-  IPlatformWatchHandler PlatformHandler { get; }
+  IPlatformWatchHandler? PlatformHandler { get; }
 
   void Initialize();
 
@@ -22,12 +21,7 @@ public interface IWatchService
   /// <summary>Send message payload.</summary>
   /// <remarks>Overload method to simplify parameters.</remarks>
   /// <param name="commandType">Payload command type.</param>
-  /// <param name="dataString">Payload data.</param>
-  /// <param name="dataNumber">Payload data.</param>
-  /// <param name="dataBytes">Payload data.</param>
-  void SendMessageAsync(
-    string commandType,
-    string dataString = "",
-    double dataNumber = double.NaN,
-    IEnumerable<object>? dataBytes = null);
+  /// <param name="payload">Payload data.</param>
+  ////void SendMessageAsync(CommandType commandType, IEnumerable<object>? payload = null);
+  void SendMessageAsync(CommandType commandType, string payload = "");
 }

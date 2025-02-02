@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -12,7 +10,6 @@ using Learn.MauiWatchMobile.Interfaces;
 using Learn.MauiWatchMobile.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Storage;
 
 namespace Learn.MauiWatchMobile.Platforms.Android.Services;
 
@@ -59,7 +56,7 @@ public class WatchService :
 
   public event WearableResponseEventDelegate? ResponseReceived;
 
-  public IPlatformWatchHandler PlatformHandler { get; private set; }
+  public IPlatformWatchHandler? PlatformHandler { get; private set; }
 
   /// <inheritdoc/>
   public async void Connect()
@@ -120,9 +117,9 @@ public class WatchService :
 
         var packet = new WearPacket
         {
+          CommandType = data.CommandType,
           StatusType = StatusType.Received,
-          CommandType = CommandType.Message,
-        }
+        };
 
         break;
     }
@@ -144,22 +141,16 @@ public class WatchService :
     }
   }
 
-  public async void SendMessageAsync(
-    string cmdType,
-    string stringPayload = "",
-    double numericPayload = double.NaN,
-    IEnumerable<object>? bytePayload = null)
+  /// <summary>Send message to device.</summary>
+  /// <param name="cmdType">Command type.</param>
+  /// <param name="payload">Data payload.</param>
+  public async void SendMessageAsync(CommandType cmdType, string payload = "")
+  //// IEnumerable<object>? bytePayload = null)
   {
     if (string.IsNullOrEmpty(_primaryDeviceId))
       await GetDeviceIdAsync();
 
-    var cmd = new Command
-    {
-      CommandType = cmdType,
-      StringPayload = stringPayload,
-      NumericPayload = numericPayload,
-      BinaryPayload = bytePayload?.ToArray() ?? [],
-    };
+    var cmd = new Command { CommandType = cmdType, Payload = payload };
 
     try
     {
@@ -250,6 +241,6 @@ public class WatchService :
   private void WatchService_ResponseReceived(object sender, ResponseEventArgs e)
   {
     // Should we use the event handler or MessagingCenter
-    ResponseReceived?.Invoke(this, new(e.DateTime, e.CommandType, e.StringPayload, e.NumericPayload));
+    ResponseReceived?.Invoke(this, new(e.DateTime, e.CommandType, e.Payload));
   }
 }
