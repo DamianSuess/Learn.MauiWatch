@@ -58,6 +58,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <MauiAsset Include="Platforms\Android\Resources\xml\wearable_app.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
