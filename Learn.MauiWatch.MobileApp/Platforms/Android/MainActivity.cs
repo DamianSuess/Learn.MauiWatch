@@ -15,7 +15,10 @@ namespace Learn.MauiWatchMobile;
   Theme = "@style/Maui.SplashTheme",
   MainLauncher = true,
   LaunchMode = LaunchMode.SingleTop,
-  ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
+  ConfigurationChanges =
+    ConfigChanges.ScreenSize | ConfigChanges.Orientation |
+    ConfigChanges.UiMode | ConfigChanges.ScreenLayout |
+    ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
 public class MainActivity : MauiAppCompatActivity
 {
   public static MainActivity? Instance;
@@ -30,7 +33,7 @@ public class MainActivity : MauiAppCompatActivity
     if (Platform.AppContext.CheckSelfPermission(permission) != Permission.Granted)
     {
       // 1000 == myPermissionRequestCode
-      RequestPermissions(new string[] { permission }, requestCode: 1000);
+      RequestPermissions([permission], requestCode: 1000);
     }
 
     Instance = this;

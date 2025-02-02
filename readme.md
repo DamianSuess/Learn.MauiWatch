@@ -111,6 +111,7 @@ Note, the following versions for `xamarin.androidx.collection` are in conflict. 
 
 * [AndroidX.Collection.ArrayMapKt is defined multiple times (GitHub - MAUI: #18665)](https://github.com/dotnet/maui/issues/18665)
 * [Java linking conflict when adding Xamarin.AndroidX... (GitHub - MAUI: 26963)](https://github.com/dotnet/maui/issues/26963)
+  * Recommendation: Upgrade to .NET 9
 * [Workaround (GitHub - Android-Libraries: #764)](https://github.com/dotnet/android-libraries/issues/764)
 
 ```xml

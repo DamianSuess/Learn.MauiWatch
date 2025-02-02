@@ -49,12 +49,14 @@ public class WatchService :
     _nodeClient = WearableClass.GetNodeClient(Platform.AppContext);
     _channelClient = WearableClass.GetChannelClient(Platform.AppContext);
 
+    ResponseReceived += WatchService_ResponseReceived;
+
     Initialize();
   }
 
-  public IPlatformWatchHandler PlatformHandler { get; private set; }
+  public event WearableResponseEventDelegate? ResponseReceived;
 
-  public event WearableResponseEventDelegate ResponseReceived;
+  public IPlatformWatchHandler PlatformHandler { get; private set; }
 
   /// <inheritdoc/>
   public async void Connect()
@@ -120,6 +122,7 @@ public class WatchService :
       case CommandType.UserInfo:
       case CommandType.Message:
         break;
+
       case CommandType.File:
         break;
     }
@@ -146,15 +149,24 @@ public class WatchService :
     {
       _log.LogInformation("Sending '{cmd}' to node, {node}", cmdType, _primaryDeviceId);
 
+      // Latest GooglePlayService.Wearable uses `WearableOptions` not `MessageOptions`
       await WearableClass.GetMessageClient(Platform.AppContext).SendMessage(
         _primaryDeviceId,
         MessagePath,
         cmd.ToBytes(),
         new MessageOptions(MessageOptions.MessagePriorityHigh));
 
+      // File transfer
+      var data = PutDataMapRequest.Create(FileTransfer);
+      data.DataMap.PutByteArray("COMMAND", cmd.ToBytes());
+      data.SetUrgent();
+
+      await WearableClass.GetDataClient(Platform.AppContext)
+                         .PutDataItemAsync(data.AsPutDataRequest());
     }
-    catch
+    catch (Exception ex)
     {
+      _log.LogError(ex, "Issue sending message");
     }
   }
 
@@ -187,5 +199,11 @@ public class WatchService :
       _primaryDeviceId = firstNode.Id;
       return true;
     }
+  }
+
+  private void WatchService_ResponseReceived(object sender, ResponseEventArgs e)
+  {
+    // Should we use the event handler or MessagingCenter
+    ResponseReceived?.Invoke(this, new(e.DateTime, e.CommandType, e.StringPayload, e.NumericPayload));
   }
 }
