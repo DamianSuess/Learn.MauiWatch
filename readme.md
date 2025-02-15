@@ -1,6 +1,6 @@
 ﻿# Learn - Watch WearMaui with .NET MAUI
 
-This repository provides an example on how to crete a Watch app with .NET MAUI and link it to your mobile app.
+This repository provides an example on how to create a Watch app with .NET MAUI and link it to your mobile app.
 
 **Author:** [Damian Suess](https://www.linkedin.com/in/damiansuess/)<br/>
 **Website:** [SuessLabs.com](https://suesslabs.com)<br/>
@@ -70,25 +70,11 @@ AndroidManifest.xml Permissions:
      * [Wearable API](https://developers.google.com/android/reference/com/google/android/gms/wearable/Wearable)
      * [MessageClient API](https://developers.google.com/android/reference/com/google/android/gms/wearable/MessageClient)
 
-## References
+## Issues Encountered
 
-Official Guides:
+### Type androidx.collection.ArrayMapKt is defined multiple times:
 
-* [MAUI Wear OS/Watch OS Support](https://github.com/dotnet/maui/discussions/1144)
-* [Watch Face](https://github.com/MicrosoftDocs/xamarin-docs/blob/live/docs/android/wear/platform/creating-a-watchface.md)
-
-Around the Internet:
-
-* [Showcase-1](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1) [Showcase-2](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-2)
-* Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchWearMaui)
-  * [Parse-LiveQueries](https://github.com/YBTopaz8/Parse-LiveQueries-DOTNET) comms.
-* [MAUI with Watch Apps](https://github.com/vouksh/MauiWithWatchApps)
-
-### Issues Encountered
-
-#### Type androidx.collection.ArrayMapKt is defined multiple times:
-
-##### Error Message
+#### Error Message
 
 ```
 Type androidx.collection.ArrayMapKt is defined multiple times:
@@ -100,7 +86,7 @@ Note, the following versions for `xamarin.androidx.collection` are in conflict. 
 * JVM: 1.4.0.4
 * KTX: 1.2.0.9
 
-##### The Fix
+#### The Fix
 
 ```xml
     <PackageReference Include="Xamarin.AndroidX.Collection.Ktx">
@@ -108,7 +94,7 @@ Note, the following versions for `xamarin.androidx.collection` are in conflict. 
     </PackageReference>
 ```
 
-##### Similar Issues
+#### Similar Issues
 
 * [AndroidX.Collection.ArrayMapKt is defined multiple times (GitHub - MAUI: #18665)](https://github.com/dotnet/maui/issues/18665)
 * [Java linking conflict when adding Xamarin.AndroidX... (GitHub - MAUI: 26963)](https://github.com/dotnet/maui/issues/26963)
@@ -123,3 +109,30 @@ Note, the following versions for `xamarin.androidx.collection` are in conflict. 
     <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.6.2.1" />
   </ItemGroup>
 ```
+
+## References
+
+Official Guides:
+
+* [MAUI Wear OS/Watch OS Support](https://github.com/dotnet/maui/discussions/1144)
+* [Watch Face](https://github.com/MicrosoftDocs/xamarin-docs/blob/live/docs/android/wear/platform/creating-a-watchface.md)
+
+Around the Internet:
+
+* [Showcase-1](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-1) [Showcase-2](https://www.saboit.de/blog/net-maui-android-watch-application-showcase-part-2)
+* Dimmer-MAUI [App](https://github.com/YBTopaz8/Dimmer-MAUI) - [Wear](https://github.com/YBTopaz8/DimmerWatchWearMaui)
+  * [Parse-LiveQueries](https://github.com/YBTopaz8/Parse-LiveQueries-DOTNET) comms.
+* [MAUI with Watch Apps](https://github.com/vouksh/MauiWithWatchApps)
+* [Link Emulators - Watch and Mobile](https://stackoverflow.com/a/25506889/249492)
+
+### Wear OS
+
+You'll need Android Wear OS or Samsung's installed on your emulator to communicate between the two as per, [linking emulators - Watch and Mobile](https://stackoverflow.com/a/25506889/249492).
+
+You can get [Android Wear OS](https://www.apkmirror.com/apk/google-inc/android-wear/android-wear-1-4-0-2392391-gms-release/) from APK Mirror and upload it to the mobile emulator via:
+
+> `adb install name_of_the_file.apk`
+
+### App Store
+
+Want to install other APKs like Wear OS on your emulator without logging into Google Play Store? The [Aurora store app](https://f-droid.org/packages/com.aurora.store/) can help with that.
